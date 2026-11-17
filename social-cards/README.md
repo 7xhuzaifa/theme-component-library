@@ -50,20 +50,36 @@ Goal: more control without more routine setup work.
 
 Tested in the unpublished Horizon-based “Home button test” theme.
 
+### Desktop
 Merchant-confirmed:
-- Desktop and mobile card switching works.
-- Tapping an open card again on mobile closes it.
+- Card switching works.
+- Tab and Shift+Tab navigation work without getting stuck.
+- Arrow keys switch accounts and display the matching card.
+- Follow links are reachable with Tab and activate with Enter.
+- Keyboard focus outlines are clearly visible.
+
+### Mobile preview
+Merchant-confirmed:
+- Selecting an account opens its card.
+- Switching between accounts works.
+- Tapping an open account again closes its card.
 - Tab reaches account controls and Follow links.
-- Arrow keys switch accounts and reveal cards on mobile.
+- Arrow keys switch accounts and reveal cards.
 - Space opens and closes cards.
 - Enter activates the Follow link.
 - Keyboard focus outlines are clearly visible.
 
-Unresolved:
-- Escape did not close the card in the tested editor preview.
+### Closing behavior
+Escape-to-close is not implemented and is not a failed test.
+It may be considered as a future mobile enhancement.
+Desktop closing is not a current requirement.
 
-Scope:
-This confirms the interactions above in one compatible theme.
-It is not full accessibility or cross-theme validation.
+### Scope
+These results confirm the listed interactions in one
+compatible theme, tested through the theme editor preview.
+
+This is not full accessibility or cross-theme validation.
+Mobile-preview results do not establish physical-device testing.
+
 The library-only Button label guidance has not been
 visually tested in this installation.
