@@ -4,9 +4,12 @@
 Display social-account links with selectable profile cards.
 
 ## Status
-Working in our Horizon-based blog theme.
-Extraction into this library is in progress.
-Not yet installation-tested as a separate package.
+Preserved from a working Horizon-based blog theme.
+Installed and manually interaction-tested in one compatible
+Horizon-based test theme.
+
+Theme dependencies remain. This is not a standalone package.
+Full validation is incomplete; see the test results below.
 
 ## Approach
 Preserve the working version first.
