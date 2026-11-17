@@ -42,3 +42,25 @@ offering optional inheritance from the running theme.
   because they are possible.
 
 Goal: more control without more routine setup work.
+
+## Manual installation test — 17 November 2026
+
+Tested in the unpublished Horizon-based “Home button test” theme.
+
+Merchant-confirmed:
+- Desktop and mobile card switching works.
+- Tapping an open card again on mobile closes it.
+- Tab reaches account controls and Follow links.
+- Arrow keys switch accounts and reveal cards on mobile.
+- Space opens and closes cards.
+- Enter activates the Follow link.
+- Keyboard focus outlines are clearly visible.
+
+Unresolved:
+- Escape did not close the card in the tested editor preview.
+
+Scope:
+This confirms the interactions above in one compatible theme.
+It is not full accessibility or cross-theme validation.
+The library-only Button label guidance has not been
+visually tested in this installation.
