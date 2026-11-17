@@ -50,3 +50,19 @@ These must be configured separately.
 CSS and radio inputs handle card selection.
 JavaScript adds mobile closing and scrolling behavior.
 Desktop layout begins at 990px.
+
+## Shared-snippet inspection
+
+- icon.liquid contains the theme's full icon catalogue.
+  A future standalone version should include only the
+  supported social icons, using a component-specific name.
+
+- spacing-style.liquid relies on --spacing-scale and
+  matching theme spacing classes.
+
+- contrast-override.liquid calls brightness-opacities.liquid
+  and relies on global colour settings and palette variables.
+
+These shared files are not bundled in the preserved package.
+The current package requires compatible theme dependencies.
+Standalone replacements are future work, not implemented.
