@@ -82,6 +82,11 @@ Create only the directories and documents needed.
   README.md instead of a separate INSTALL.md.
 
 ## Documentation
+Start every component README with a `## Brief` section directly
+under the title: a one-sentence definition, then What it does,
+Settings, Scope, Files, Built for, and Evidence (tested,
+owner-confirmed, untested). Keep it short; details go below.
+
 Explain:
 - What the component does.
 - Its structure and independent settings.
