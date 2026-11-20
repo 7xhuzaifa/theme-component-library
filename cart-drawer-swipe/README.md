@@ -30,7 +30,7 @@ how fast the drawer opens and closes.
 
 ## Status
 Theme-dependent baseline, not a standalone package.
-Installation files and steps: see INSTALL.md (coming next).
+Installation and removal instructions: see [INSTALL.md](INSTALL.md).
 
 ## Limitations
 - Setting labels are plain English, not translation keys yet.
