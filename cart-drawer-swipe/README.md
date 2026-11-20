@@ -27,6 +27,9 @@ how fast the drawer opens and closes.
   - Untested: tablets and desktops 990px and wider (the drawer sits
     beside the page there), right-to-left languages, reduced-motion mode,
     other locales.
+  - Owner-confirmed: fresh manual installation from the library works
+    in "Menu and cart swipe install test", alongside the menu drawer,
+    20 November 2026. Individual checklist results were not recorded.
 
 ## Status
 Theme-dependent baseline, not a standalone package.
