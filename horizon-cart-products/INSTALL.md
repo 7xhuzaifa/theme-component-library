@@ -1,8 +1,12 @@
 # Horizon cart products installation
 
 ## Status
-Built and owner-tested in one Horizon 4.5.0 build theme.
-A fresh installation from this package has not been tested yet.
+Built and owner-tested in Horizon 4.5.0.
+Fresh installation owner-confirmed working on 22 Nov 2026 in
+"Install - Menu + Cart Swipe + Cart Products v1.0".
+The five installed code files and four translation entries were
+verified against the package. Individual interaction checklist
+results were not recorded separately.
 
 ## 1. Prepare
 - Use an unpublished duplicate of the destination theme.
