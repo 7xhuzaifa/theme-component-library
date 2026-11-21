@@ -42,9 +42,14 @@ both the cart page and the cart drawer.
     10% product code and $5 order code together gave correct row savings,
     Total savings ($48.45) and struck Subtotal ($234.48 → $186.03).
   - Theme Check: 0 errors (2 existing warnings in unrelated files).
-  - Untested: fresh installation from this package; quick order list
-    section; the empty-cart text line (no recorded check); keyboard and
-    focus on the bin and promo caret; right-to-left
+  - Fresh install, 22 Nov 2026: the five installed code files match
+    this package (ignoring line endings), and all four translation
+    entries are present with the correct values.
+  - Owner-confirmed: installation works in "Install - Menu + Cart
+    Swipe + Cart Products v1.0". Individual interaction checklist
+    results were not recorded separately.
+  - Untested: quick order list section; the empty-cart text line;
+    keyboard and focus on the bin and promo caret; right-to-left
     languages; locales other than English; reduced-motion mode.
 
 ## How the savings are calculated
