@@ -1,5 +1,15 @@
 # Changelog: Cart drawer swipe
 
+## v2.0.1 (22 November 2026)
+Patch: scrollbar stability and installation evidence; swipe behavior unchanged.
+- Reserve scrollbar space persistently on .page-wrapper at 990px and wider,
+  instead of only while scroll-locked.
+- Reserve scrollbar space on html below 990px, matching the other scroller.
+- Update step 8, v2.0 upgrade notes, removal instructions and reference diff.
+- Record owner-confirmed upgrade installation and scrollbar checks.
+- Keep configured regular open/close timing and native dynamic swipe settling
+  separate, as accepted by the owner. No JavaScript or settings changes.
+
 ## v2.0 (22 November 2026)
 Major: upgrading from v1.0 needs new edits (see INSTALL.md).
 - Swipe rebuilt on the browser's own sideways scrolling with snap points.

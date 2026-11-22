@@ -1,4 +1,4 @@
-# Install cart drawer swipe (v2.0)
+# Install cart drawer swipe (v2.0.1)
 
 ## Compatibility
 Built for Horizon 4.5.0 using its `theme-drawer` cart drawer. Other themes and versions have not been validated.
@@ -6,6 +6,12 @@ Built for Horizon 4.5.0 using its `theme-drawer` cart drawer. Other themes and v
 Install and test in an unpublished theme. Compare destination files first and preserve unrelated changes. Do not replace whole theme files with copies from another theme. The `patches/` folder shows every change against stock Horizon 4.5.0 for reference.
 
 This installation replaces or adds one asset and edits five existing files. Steps 1–8 are the same for a fresh install and an upgrade from v1.0; where v1.0 left something behind, the step says what to replace.
+
+## Upgrade from v2.0
+Only step 8 changed. Remove the previous scrollbar-gutter line from
+html[scroll-lock] .page-wrapper, then apply step 8 below. Leave the existing
+overflow: hidden declaration in place. No script, settings or other drawer
+changes are needed. Reload and test below and above 990px.
 
 ## 1. Add the script
 Copy this package's `files/assets/cart-drawer-swipe.js` into the theme as `assets/cart-drawer-swipe.js`.
@@ -347,24 +353,59 @@ Replace both with:
 Do not change the `theme-drawer[open]:not([no-persist])` line in the state-saving code. Drawers without the marker (filters, pickup, chat) behave exactly as before.
 
 ## 8. Stop the page shifting when a drawer opens
-Open `assets/base.css`. Find:
+Open `assets/base.css`. Horizon changes the page scroller at 990px, so reserve
+scrollbar space on the appropriate element in each width range.
+
+If upgrading from v2.0, first remove only the `scrollbar-gutter: stable` line
+previously added inside `html[scroll-lock] .page-wrapper`. Keep its
+`overflow: hidden` declaration.
+
+Find:
 
 ```css
-  html[scroll-lock] .page-wrapper {
-    overflow: hidden;
-  }
+html[scroll-lock] {
+  overflow: hidden;
+}
 ```
 
-Replace with:
+Immediately after it, add (once):
 
 ```css
-  html[scroll-lock] .page-wrapper {
-    overflow: hidden;
+/* Below 990px the document is the scroller, so keep its scrollbar's space for the same reason */
+@media (max-width: 989px) {
+  html {
+    scrollbar-gutter: stable;
+  }
+}
+```
+
+Then find the existing desktop `.page-wrapper` rule beginning:
+
+```css
+@media (min-width: 990px) {
+  .page-wrapper {
+    height: 100dvh;
+    overflow-y: auto;
+```
+
+Add the gutter declaration directly after `overflow-y: auto;`, so it begins:
+
+```css
+@media (min-width: 990px) {
+  .page-wrapper {
+    height: 100dvh;
+    overflow-y: auto;
     scrollbar-gutter: stable; /* keep the scrollbar's space so the page doesn't shift when a drawer opens */
-  }
 ```
 
-This applies to every drawer and dialog that locks the page on desktop.
+These last two excerpts show only the start of the existing rule. Preserve
+all following declarations and closing braces, including the account-dialog
+and RTL rules in that media block. Do not replace the entire media block.
+Do not add either declaration again if already present.
+
+This shared fix reserves space even before a drawer opens. With classic
+space-taking scrollbars, short pages can retain an empty gutter; overlay
+scrollbars do not reserve that space. Test long and short pages at both widths.
 
 ## 9. Configure
 In Theme settings → Cart:
@@ -404,7 +445,7 @@ Remove only this component's changes:
 1. The conditional script tag, the standalone style block and its comment from `snippets/cart-drawer.liquid`.
 2. In the same file: `overlay-desktop` and `no-persist` from `<theme-drawer id="cart-drawer">`, the `cart-drawer__panel` wrapper's opening and closing `<div>` tags, the `cart-drawer__swipe-space` block, and the two `overflow-x: hidden` lines.
 3. The step 7 changes in `assets/theme-drawer.js` and `snippets/theme-drawer.liquid` (restore the original lines shown in step 7).
-4. The `scrollbar-gutter` line in `assets/base.css`, if no other component relies on it.
+4. Both added `scrollbar-gutter` declarations in `assets/base.css` and the new below-990px media block, if no other component relies on them. Keep Horizon's existing desktop media block and all its other declarations.
 5. The `cart_drawer_swipe` and `cart_drawer_speed` setting objects from `config/settings_schema.json`, keeping the JSON valid, and any saved values for them in `config/settings_data.json`.
 6. `assets/cart-drawer-swipe.js`.
 
