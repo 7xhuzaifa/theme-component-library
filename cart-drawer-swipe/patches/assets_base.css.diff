@@ -1,0 +1,10 @@
+--- a/assets/base.css (Horizon 4.5.0)
++++ b/assets/base.css (cart drawer swipe v2.0)
+@@ -42,6 +42,7 @@
+ @media (min-width: 990px) {
+   html[scroll-lock] .page-wrapper {
+     overflow: hidden;
++    scrollbar-gutter: stable; /* keep the scrollbar's space so the page doesn't shift when a drawer opens */
+   }
+ }
+ 
